@@ -2,18 +2,25 @@ print("Welcome to the GitATM!")
 
 #Login List
 usernameList = ["Swaraj"]
-passwordList = ["abcsss"]
+passwordList = ["thunder_5544"]
 # Note the 1st item of the username list corresponds to the 1st item of the password(s) list
 
 # FUNCTIONS
 def createAcc():
         usernameSignUp = str(input("Enter your new username: "))
-        usernameList.append(usernameSignUp)
-
-        passwordSignUp = str(input("Enter your new password: "))
-        passwordList.append(passwordSignUp)
-        print("You have successfully created your account!\n\nNow Please Login Again!")
-        checkLoginSystem()
+        if usernameSignUp in usernameList:
+            print("There is already an account associated!")
+            error = str(input("Type 'retry' to retry OR type 'login' to login!: "))
+            if error == 'retry':
+                createAcc()
+            elif error == 'login':
+                checkLoginSystem()
+        else:
+            usernameList.append(usernameSignUp)
+            passwordSignUp = str(input("Enter your new password: "))
+            passwordList.append(passwordSignUp)
+            print("You have successfully created your account!\n\nNow Please Login Again!")
+            checkLoginSystem()
 
 
 def bank():
@@ -39,18 +46,20 @@ def checkLoginSystem():
         if checkUserList == usernameList.index(usernameLogin):
             indexOfcheckUserList = checkUserList 
             passwordLogin = str(input("Password: "))
-            checkPasswordList = passwordList.index(passwordLogin)
-            if checkPasswordList == indexOfcheckUserList:
-                print("\n\n...\nSuccesfully logged In!")
+            if passwordList[indexOfcheckUserList] == passwordLogin:
+                print("\n\n...\nSuccessfully logged in!")
                 bank()
+            else:
+                raise ValueError
     except ValueError:
-        error = str(input("Password does not match! (If you want to create a new account type 'cracc' OR type 'retry' to retry): "))
+        error = str(input("Password does not match! (If you want to create a new account, type 'cracc' OR type 'retry' to retry): "))
         if error == "cracc":
             createAcc()
         elif error == "retry":
             checkLoginSystem()
         else:
-            print("-Error-\n please type cracc")
+            print("-Error-\nPlease type cracc")
+
 
 checkLogin = input("Are you an existing user? ")
 if checkLogin == "yes" or checkLogin == "y" or checkLogin == "Y" or checkLogin == "YES":
