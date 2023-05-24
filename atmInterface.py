@@ -1,4 +1,4 @@
-print("Welcome the GitATM!")
+print("Welcome to the GitATM!")
 name = str(input("Enter your name: "))
 account_number = str(input("Enter your Account Number: "))
 print("Great you have just created your GitATM bank account!", name, "(If you quit you might want to create a new account)")
