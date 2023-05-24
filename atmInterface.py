@@ -5,9 +5,9 @@ print("Great you have just created your GitATM bank account!", name, "(If you qu
 
 bankBalance = 0
 print("Enter your choice: ")
-choice = (input("1. Deposit Amount\n2. Withdraw Amount\n3. Check Bank Balance\n4. View Bank Info\n5. Quit\nEnter the number corresponding to the option: "))
 
 def bank():
+    choice = (input("1. Deposit Amount\n2. Withdraw Amount\n3. Check Bank Balance\n4. View Bank Info\n5. Quit\nEnter the number corresponding to the option: "))
     if choice == "1":
         print("Choice 1 is selected")
     elif choice == "2":
@@ -18,7 +18,9 @@ def bank():
         print("Choice 4 is selected")
     elif choice == "5":
         print("Choice 5 is selected")
+    
+    if choice != ["1", "2", "3", "4", "5"]:
+        print("\n\nERROR\nRetrying...")
+        bank()
 
-if choice != ["1", "2", "3", "4", "5"]:
-    print("Retrying...")
-    bank()
+bank()
