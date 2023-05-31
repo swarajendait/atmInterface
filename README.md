@@ -1,7 +1,7 @@
+---
 # GitATM 💰
-
 GitATM is a simple command-line ATM application that allows users to create accounts, log in, and perform banking operations such as depositing money, withdrawing money, checking bank balance, and viewing bank information.
-
+___
 ## How to Run ▶️
 
 1. Make sure you have Python installed on your system.
